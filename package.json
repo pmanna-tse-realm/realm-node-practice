@@ -1,0 +1,21 @@
+{
+	"name": "noderealmpractice",
+	"version": "1.0.0",
+	"description": "Sample Realm app to illustrate common practices",
+	"main": "index.js",
+	"scripts": {
+		"cleanStart": "index.js --clean --appId='testbed-eobcc' --partition='PUBLIC' --user='test@example.com' --password='password'",
+		"start": "index.js --appId='testbed-eobcc' --partition='PUBLIC'",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Paolo Manna",
+	"license": "MIT",
+	"dependencies": {
+		"minimist": "^1.2.6",
+		"ora": "^5.4.1",
+		"realm": "^11.2.0"
+	},
+	"bin": {
+		"noderealmpractice": "index.js"
+	}
+}
