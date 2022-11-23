@@ -52,7 +52,7 @@ function errorSync(session, error) {
         break;
       // TODO: Handle other cases…
       default:
-        logWithDate(`Received error ${error.message}`);
+        logWithDate(`Received error "${error.name}": ${error.message}`);
     }
   }
 }

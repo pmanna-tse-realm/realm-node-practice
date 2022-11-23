@@ -47,13 +47,13 @@ Authenticates with Custom JWT Provider.
 
 Authenticates with a Custom Function, passing this parameter as username.
 
+#### --logLevel='\<Log Level>'
+
+Sets the Log Level (i.e. `info`, `debug`, `trace`, …). The SDK log is collected in a separate file within the project folder.
+
 #### --clean
 
 Deletes a pre-existing local DB, logs out the current user, if any, and ensures a fresh copy is downloaded.
-
-#### --logLevel='\<Log level>'
-
-Sets the Log Level (i.e. 'info', 'debug', 'trace', …). The SDK log is collected in a separate file within the project folder.
 
 ## Install
 
