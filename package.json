@@ -13,7 +13,7 @@
 	"dependencies": {
 		"minimist": "^1.2.6",
 		"ora": "^5.4.1",
-		"realm": "^11.2.0"
+		"realm": "^11.3.0"
 	},
 	"bin": {
 		"noderealmpractice": "index.js"
