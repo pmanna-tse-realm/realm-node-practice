@@ -7,13 +7,15 @@ const Realm = require("realm");
 const constants = require('./constants');
 const minimist = require('minimist');
 const { EJSON } = require('bson');
-const { logToFile } = require('./logger');
+// const { logToFile, closeLog } = require('./logger');
+const { RemoteLogger } = require('./RemoteLogger');
 
 let app = null;
 
 let realm;
 let args = {};
 let spinner = ora("Working…");
+let remoteLogger = new RemoteLogger('remotelogging-ofhwn', 'IfnFnXI7oWSdbL0cbnd1i7aNAf72o2HtcHXs3nL1O5XDuf6R58GGjpLZP5hQISyA');
 
 function fileExistsSync(file) {
   try {
@@ -234,7 +236,8 @@ async function run() {
     let user = app.currentUser;
 
     Realm.App.Sync.setLogLevel(app, constants.logLevel);
-    Realm.App.Sync.setLogger(app, (level, message) => logToFile(`(${level}) ${message}`));
+    // Realm.App.Sync.setLogger(app, (level, message) => logToFile(`(${level}) ${message}`));
+    await remoteLogger.startLogging(app);
 
     if (args.clean && user && user.isLoggedIn) {
       await user.logOut();
@@ -281,13 +284,16 @@ async function run() {
     console.error(error);
     // user.logOut().then(() => console.error(error));
   } finally {
-    setTimeout(() => {
+    setTimeout(async () => {
       if (realm) {
         realm.syncSession.removeProgressNotification(transferProgress);
         realm.close();
       }
 
       logWithDate("Done");
+
+      // closeLog();
+      await remoteLogger.stopLogging();
 
       process.exit(0);
     }, 5000);

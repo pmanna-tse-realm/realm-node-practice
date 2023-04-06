@@ -4,7 +4,7 @@
 	"description": "Sample Realm app to illustrate common practices",
 	"main": "index.js",
 	"scripts": {
-		"cleanStart": "index.js --clean --appId='testbed-eobcc' --partition='PUBLIC' --user='test@example.com' --password='password'",
+		"cleanStart": "index.js --clean --logLevel=debug --appId='testbed-eobcc' --partition='PUBLIC' --user='test@example.com' --password='password'",
 		"start": "index.js --appId='testbed-eobcc' --partition='PUBLIC' --user='test@example.com' --password='password'",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
